@@ -13,7 +13,7 @@ function Home(){
        <img src={addbtn} alt="add"  className="add-icon"/>
        </div>
     </div>
-   )
+   )g
 
 }
 
