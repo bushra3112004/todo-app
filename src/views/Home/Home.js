@@ -11,6 +11,18 @@ function Home(){
      const [newTask,setNewTask]=useState("")
      const [category,setCategory]=useState("")
 
+     function deleteItem(index){
+      const setToDoList=todoList.filter((item,i)=>{
+        if(i==index){
+          return true
+        }
+        else{
+          return false
+        }
+       })
+       setToDoList[newTodoList]
+     }
+
    return( <div>
        <h1 className="app-title">ToDo App📄</h1>
        <div className="todo-list-container">
@@ -52,10 +64,14 @@ function Home(){
        alt="add" 
         className="add-icon"
         onClick={()=>{
-          setToDoList([...todoList,newTask])
-          setNewTask("")
-          toast.success('task added succesfully')
-
+          if(newTask===""){
+            toast.error('task cannot empty!!')
+            return
+          }
+          if(category===""){
+            toast.error('please select category')
+            return
+          }
           setToDoList([...todoList,{task:newTask,category:category}])
           setNewTask("")
           setCategory("")
