@@ -5,30 +5,27 @@ import { useState } from "react"
 import toast,{Toaster} from "react-hot-toast"
 
 function Home(){
-     const [todoList,setToDoList]=useState([
-      {task:"learn react",category:"learning"}
-     ])
+     const [todoList,setToDoList]=useState([])
      const [newTask,setNewTask]=useState("")
      const [category,setCategory]=useState("")
 
-     function deleteItem(index){
-      const setToDoList=todoList.filter((item,i)=>{
-        if(i==index){
-          return true
-        }
-        else{
-          return false
-        }
-       })
-       setToDoList[newTodoList]
-     }
+      //function deleteItem(item){
+      //const newTodoList=todoList.filter((item,i)=>{
+        //if(i==index){
+       //   return true
+       // }
+        ////else{
+        //  return false
+       // }
+      // })
+      // setToDoList[newTodoList]}
 
    return( <div>
        <h1 className="app-title">ToDo App📄</h1>
        <div className="todo-list-container">
         {todoList.map((todoItem,i)=>{
           const{task,category}=todoItem
-        return <ToDoCard key={i} task={task} category={category}/>
+        return <ToDoCard key={i} index={i} task={task} category={category} />
          })}
         {
           todoList.length === 0 ?
@@ -51,13 +48,13 @@ function Home(){
           onChange={(e)=>setCategory(e.target.value)}
           >
          <option value="">category</option>
-         <option value="learning"> learning</option>
-         <option value="work">work</option>
-         <option value="personal">personal</option>
-         <option value="shopping">shopping</option>
-         <option value="health">health</option>
-         <option value="fitness">fitness</option>
-         <option value="other">other</option>
+         <option value="📔learning"> learning</option>
+         <option value="⚙️work">work</option>
+         <option value="💻personal">personal</option>
+         <option value="🛍️shopping">shopping</option>
+         <option value="👨‍⚕️health">health</option>
+         <option value=" 🏋fitness">fitness</option>
+         <option value="😵other">other</option>
           </select>
 
        <img src={addbtn} 
